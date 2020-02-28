@@ -1,766 +1,159 @@
 import '../scss/index.scss'
+import '@babel/polyfill'
 
-const data = [
-  {
-    Ticketinfo: "",
-    _full_count: "5",
-    Zone: "鹽埕區",
-    Px: "120.28912",
-    Py: "22.62267",
-    rank: 0.0573088,
-    Add: "高雄市鹽埕區河西路10號",
-    Gov: "397000000A",
-    Class2: null,
-    Class1: "1",
-    Website: "http://kfa.kcg.gov.tw/",
-    Opentime: "週二至週日13:30-21:30，每週一及除夕至農曆大年初一休館",
-    Description: "座落在愛河畔的高雄電影館，於2001年成立，空間小巧精緻，館內每天定時播放售票電影，並提供多種放映設備、電影叢書、藝術類影片及紀錄片，是高雄第一個電影文化推廣的社教單位。電影館緊鄰愛河旁，吸引許多熱愛電影的高雄市民前來，在夜晚散發的點點藍紫光芒與愛河的波光互相呼應，當微風輕拂，在電影館前廣場散步的戀人低頭私語，透露出愛河的浪漫情懷。",
-    Remarks: "",
-    Parkinginfo_py: "0",
-    Parkinginfo_px: "0",
-    Name: "高雄市立電影館",
-    Level: null,
-    Picture1: "http://khh.travel/FileArtPic.ashx?id=2211&w=1280&h=960",
-    Toldescribe: "座落在愛河畔的高雄電影館，於2001年成立，空間小巧精緻，館內每天定時播放售票電影，並提供多種放映設備、電影叢書、藝術類影片及紀錄片，是高雄第一個電影文化推廣的社教單位。電影館緊鄰愛河旁，吸引許多熱愛電影的高雄市民前來，在夜晚散發的點點藍紫光芒與愛河的波光互相呼應，當微風輕拂，在電影館前廣場散步的戀人低頭私語，透露出愛河的浪漫情懷。",
-    Changetime: "2015-06-10T15:16:18",
-    Tel: "886-7-5511211",
-    Picdescribe1: "高雄市立電影館",
-    Travellinginfo: "",
-    _id: 146,
-    Id: "C1_397000000A_000213"
-  },
-  {
-    Ticketinfo: "",
-    _full_count: "5",
-    Zone: "鹽埕區",
-    Px: "120.28687",
-    Py: "22.62675",
-    rank: 0.0573088,
-    Add: "高雄市鹽埕區中正四路272號",
-    Gov: "397000000A",
-    Class2: null,
-    Class1: "1",
-    Website: "http://khm.gov.tw/home01.aspx?ID=1",
-    Opentime: "週二至週日09:00-17:00，每週一休館",
-    Description: "高雄市立歷史博物館位於鹽埕區愛河畔的中正四路，原為高雄市政府所在地，1992年(民國81年)市政府搬遷後，鑒於五十多年來此地肩負著市政龍頭的角色、承載著城市發展的軌跡與市民生活的印記，也是228事件時的歷史現場，無論建築的外型與內涵都刻劃著高雄的光榮、傷痕與過去，因此市府將古蹟再造，改裝成歷史博物館，成為臺灣第一座由地方政府經營的歷史博物館。館內紀錄先民篳路藍縷、以啟山林的艱辛過程，期望透過高博館展示的珍貴文物和各項研究及推廣活動，讓更多的民眾了解高雄市發展的軌跡。建築外觀以淺綠的國防色系為基調，整體採中央主塔搭配兩側對稱的塔樓式造型，中軸線的設計表達莊嚴、隆重的氣氛，頂部疊加上日本傳統的四角攢尖與琉璃瓦大屋頂，建築本體於2004年(民國93年)經高雄市政府指定公告為市定古蹟，成為古蹟再利用為文化館舍的最佳典範，曾經肩負起市政領航員的角色，承載著高雄子民的生活印象與歷史軌跡，其角色的轉",
-    Remarks: "",
-    Parkinginfo_py: "0",
-    Parkinginfo_px: "0",
-    Name: "高雄市立歷史博物館",
-    Level: null,
-    Picture1: "http://khh.travel/FileArtPic.ashx?id=2358&w=1280&h=960",
-    Toldescribe: "高雄市立歷史博物館位於鹽埕區愛河畔的中正四路，原為高雄市政府所在地，1992年(民國81年)市政府搬遷後，鑒於五十多年來此地肩負著市政龍頭的角色、承載著城市發展的軌跡與市民生活的印記，也是228事件時的歷史現場，無論建築的外型與內涵都刻劃著高雄的光榮、傷痕與過去，因此市府將古蹟再造，改裝成歷史博物館，成為臺灣第一座由地方政府經營的歷史博物館。館內紀錄先民篳路藍縷、以啟山林的艱辛過程，期望透過高博館展示的珍貴文物和各項研究及推廣活動，讓更多的民眾了解高雄市發展的軌跡。建築外觀以淺綠的國防色系為基調，整體採中央主塔搭配兩側對稱的塔樓式造型，中軸線的設計表達莊嚴、隆重的氣氛，頂部疊加上日本傳統的四角攢尖與琉璃瓦大屋頂，建築本體於2004年(民國93年)經高雄市政府指定公告為市定古蹟，成為古蹟再利用為文化館舍的最佳典範，曾經肩負起市政領航員的角色，承載著高雄子民的生活印象與歷史軌跡，其角色的轉換，昭示著高雄城市歷史的變遷與成長。 高雄市立歷史博物館以保存及發揚高雄地區的歷史文化、豐實市民生活品質為宗旨，在營運管理上設有展覽、推廣、典藏等專業部門，從事與高雄、臺灣相關之歷史文化藝術之展示、教育推廣、文物典藏管理等保存與傳承工作，目前文物典藏8000多項、展覽無數，可說是民眾認識高雄文化的窗口、最佳的教育研討中心，也是各方研究高雄歷史的知識寶庫。期望成為學校戶外本土教學之重要場域，及國內外具知性與感性之最佳觀光景點，形塑博物館為城市觀光的一環，讓逛博物館成為最頻繁、最高級、也最平價的日常休閒活動。",
-    Changetime: "2015-06-05T15:22:43",
-    Tel: "886-7-5312560",
-    Picdescribe1: "高雄市立歷史博物館",
-    Travellinginfo: "",
-    _id: 223,
-    Id: "C1_397000000A_000601"
-  },
-  {
-    Ticketinfo: "",
-    _full_count: "5",
-    Zone: "鹽埕區",
-    Px: "120.28686",
-    Py: "22.62762",
-    rank: 0.0573088,
-    Add: "高雄市鹽埕區河西路99號",
-    Gov: "397000000A",
-    Class2: null,
-    Class1: "1",
-    Website: "http://kaohsiungmusichall.khcc.gov.tw/home01.aspx?ID=1",
-    Opentime: "視表演時間而定",
-    Description: "高雄市音樂館臨愛河河畔的中正四路與河西路交叉口處，全館是一棟白色五層樓建築。館中一到三層為演奏廳，擁有344個席次，是高雄市室內樂、各種音樂演奏發表會的表演場地，四到五樓則為高雄市立交響樂團所使用。除了演奏廳之外，市立音樂館還有戶外音樂廣場，七百多坪的寬闊廣地與愛河河岸的綠帶美景互相結合，活潑多元的戶外音樂活動使得愛河河畔樂聲琴韻悠揚，是市民最愛的文化一隅。",
-    Remarks: "",
-    Parkinginfo_py: "0",
-    Parkinginfo_px: "0",
-    Name: "高雄市立音樂館",
-    Level: null,
-    Picture1: "http://khh.travel/FileArtPic.ashx?id=2166&w=1280&h=960",
-    Toldescribe: "高雄市音樂館臨愛河河畔的中正四路與河西路交叉口處，全館是一棟白色五層樓建築。館中一到三層為演奏廳，擁有344個席次，是高雄市室內樂、各種音樂演奏發表會的表演場地，四到五樓則為高雄市立交響樂團所使用。除了演奏廳之外，市立音樂館還有戶外音樂廣場，七百多坪的寬闊廣地與愛河河岸的綠帶美景互相結合，活潑多元的戶外音樂活動使得愛河河畔樂聲琴韻悠揚，是市民最愛的文化一隅。",
-    Changetime: "2015-06-04T13:45:51",
-    Tel: "886-7-5315555",
-    Picdescribe1: "高雄市立音樂館",
-    Travellinginfo: "",
-    _id: 135,
-    Id: "C1_397000000A_000202"
-  },
-  {
-    Ticketinfo: "",
-    _full_count: "5",
-    Zone: "鹽埕區",
-    Px: "120.28532",
-    Py: "22.6254",
-    rank: 0.0573088,
-    Add: "高雄市鹽埕區中正四路、大勇路口",
-    Gov: "397000000A",
-    Class2: null,
-    Class1: "18",
-    Website: "",
-    Opentime: "全天候開放",
-    Description: "鹽埕埔是昔日高雄最早發展、最繁華興盛的地區，位於中正四路與大勇路口的「鹽埕市民廣場」是由舊時的鹽埕圓環重新規劃改建，最特別是是廣場中的噴泉遊樂區，每天在特定時段以音樂搭配水舞及燈光，歡樂悠閒的氣氛很有南國情調。此外廣場內設有立體的藝術燈箱、光雕景觀牆、悠雅的林蔭步道，無論日夜晨昏各有不同風情。市民廣場與二二八和平公園比鄰，國際會議中心、歷史博物館也在一街之隔，廣場的綠意與噴泉是繁忙都會生活中一?清新與涼意，是親子共遊、清涼消暑的好去處。",
-    Remarks: "",
-    Parkinginfo_py: "0",
-    Parkinginfo_px: "0",
-    Name: "市民廣場",
-    Level: null,
-    Picture1: "http://khh.travel/FileArtPic.ashx?id=2171&w=1280&h=960",
-    Toldescribe: "鹽埕埔是昔日高雄最早發展、最繁華興盛的地區，位於中正四路與大勇路口的「鹽埕市民廣場」是由舊時的鹽埕圓環重新規劃改建，最特別是是廣場中的噴泉遊樂區，每天在特定時段以音樂搭配水舞及燈光，歡樂悠閒的氣氛很有南國情調。此外廣場內設有立體的藝術燈箱、光雕景觀牆、悠雅的林蔭步道，無論日夜晨昏各有不同風情。市民廣場與二二八和平公園比鄰，國際會議中心、歷史博物館也在一街之隔，廣場的綠意與噴泉是繁忙都會生活中一?清新與涼意，是親子共遊、清涼消暑的好去處。",
-    Changetime: "2015-06-04T13:46:50",
-    Tel: "886-7-5513316",
-    Picdescribe1: "市民廣場",
-    Travellinginfo: "",
-    _id: 136,
-    Id: "C1_397000000A_000203"
-  },
-  {
-    Ticketinfo: "",
-    _full_count: "2",
-    Zone: "新興區",
-    Px: "120.30132",
-    Py: "22.63151",
-    rank: 0.0573088,
-    Add: "高雄市新興區中山一路115號",
-    Gov: "397000000A",
-    Class2: null,
-    Class1: "5",
-    Website: "http://www.krtco.com.tw/",
-    Opentime: "每日06:00-23:00",
-    Description: "本站是捷運紅線與橘線交接的轉運站，站區範圍廣大，設有11個出口。車站建築裡外都像是藝術品，四座玻璃帷幕鋼骨站台建築，是由日本建築師高松伸所設計，象徵「祈禱」之意，是為紀念當年在此地發生的美麗島事件。而站內的公共藝術「光之穹頂」，是由義大利藝術家水仙大師「Narcissus Quagliata」歷時四年半所完成，藉玻璃、彩繪及燈光組合的玻璃藝術創作，代表宇宙誕生、成長、榮耀與毀滅，被美國旅遊網站「BootsnAll」評選為全世界最美捷運站第二名。",
-    Remarks: "",
-    Parkinginfo_py: "0",
-    Parkinginfo_px: "0",
-    Name: "光之穹頂-O5R10美麗島捷運站",
-    Level: null,
-    Picture1: "http://khh.travel/FileArtPic.ashx?id=831&w=1280&h=960",
-    Toldescribe: "本站是捷運紅線與橘線交接的轉運站，站區範圍廣大，設有11個出口。車站建築裡外都像是藝術品，四座玻璃帷幕鋼骨站台建築，是由日本建築師高松伸所設計，象徵「祈禱」之意，是為紀念當年在此地發生的美麗島事件。而站內的公共藝術「光之穹頂」，是由義大利藝術家水仙大師「Narcissus Quagliata」歷時四年半所完成，藉玻璃、彩繪及燈光組合的玻璃藝術創作，代表宇宙誕生、成長、榮耀與毀滅，被美國旅遊網站「BootsnAll」評選為全世界最美捷運站第二名。",
-    Changetime: "2015-09-23T10:01:50",
-    Tel: "886-7-7938888",
-    Picdescribe1: "光之穹頂-O5R10美麗島捷運站",
-    Travellinginfo: "",
-    _id: 159,
-    Id: "C1_397000000A_000226"
-  },
-  {
-    Ticketinfo: "",
-    _full_count: "2",
-    Zone: "新興區",
-    Px: "120.3149",
-    Py: "22.62729",
-    rank: 0.0573088,
-    Add: "高雄市新興區五福一路與光華一路交叉路口",
-    Gov: "397000000A",
-    Class2: null,
-    Class1: "15",
-    Website: "",
-    Opentime: "全天候開放",
-    Description: "行走在苓雅區五福路與光華路口，高達38公尺的巨型彩色球狀物讓過往行人眼光一亮、驚喜不已。自來水公園店地一公頃，原為1960年興建但已棄置停用的大型蓄水塔及自來水源輸配管線。由於其歷史價值，市府將輸配管線都予以保留，並將蓄水量達3800公噸的水塔外觀漆上七彩顏色，夜晚輔以燈光造景，成為高雄市區的美麗地標。園區內的有七處景觀藝術品，地面則以弧面意象鋪設，並以光纖光帶串連玻璃馬賽克呈現高雄市地圖及多種繽紛圖案。綠意盎然的園區白天如同糖果屋般繽紛可愛，夜晚的華麗燈光又展現不同的華麗情調，為剛硬的工業場所換上了柔美的藝術新風格。",
-    Remarks: "",
-    Parkinginfo_py: "0",
-    Parkinginfo_px: "0",
-    Name: "自來水公園",
-    Level: null,
-    Picture1: "http://khh.travel/FileArtPic.ashx?id=212&w=1280&h=960",
-    Toldescribe: "行走在苓雅區五福路與光華路口，高達38公尺的巨型彩色球狀物讓過往行人眼光一亮、驚喜不已。自來水公園店地一公頃，原為1960年興建但已棄置停用的大型蓄水塔及自來水源輸配管線。由於其歷史價值，市府將輸配管線都予以保留，並將蓄水量達3800公噸的水塔外觀漆上七彩顏色，夜晚輔以燈光造景，成為高雄市區的美麗地標。園區內的有七處景觀藝術品，地面則以弧面意象鋪設，並以光纖光帶串連玻璃馬賽克呈現高雄市地圖及多種繽紛圖案。綠意盎然的園區白天如同糖果屋般繽紛可愛，夜晚的華麗燈光又展現不同的華麗情調，為剛硬的工業場所換上了柔美的藝術新風格。",
-    Changetime: "2016-01-20T11:47:03",
-    Tel: "886-7-3422444",
-    Picdescribe1: "自來水公園",
-    Travellinginfo: "",
-    _id: 69,
-    Id: "C1_397000000A_000083"
-  },
-  {
-    Ticketinfo: "",
-    _full_count: "8",
-    Zone: "苓雅區",
-    Px: "120.29165",
-    Py: "22.62029",
-    rank: 0.0573088,
-    Add: "高雄市五福三路151號",
-    Gov: "397000000A",
-    Class2: null,
-    Class1: "4",
-    Website: "http://www.rosary.org.tw/",
-    Opentime: "週一至週三、週五 09:00-12:00；14:00-17:00，週四 11:00-12:00；14:00-17:00",
-    Description: "經常在電視廣告上看到一棟造型優雅的教堂， 以為是在外國取景拍攝呢， 才發現這是臺灣最大主教座堂-「玫瑰聖母聖殿主教座堂」。鄰近愛河畔的玫瑰聖母教堂，創始於1859年，為天主教會在臺灣重新開教建立的第一座教堂，也是近代臺灣天主教會發源地，一百多年來，是無數南部民眾的信仰憑藉。現在為天主教高雄教區主教座堂，也是亞洲三大聖堂之一。主教堂的整體建築造型仿歐洲歌德式教堂風格，並混合部分羅馬風格，參天聳立的尖塔，拱型窗櫺與玫瑰花窗，呈現出哥德式建築風采，優美而華麗；內部以七對柱子分成中殿及兩側通廊，而兩側夾層之間及天花板以交叉拱筋構成，聖壇以八角環形的方式處理，別具特色美感。正門上方有清領時期奉旨碑，其左右兩側有教宗、樞機主教的牧徽。 玫瑰聖母堂也是亞洲三大聖堂之一，外觀典雅，內部莊嚴的特殊景致，在現代都市化建築中，顯得風格獨具，更在2001年在臺灣歷史建築百景票選中榮獲全國第一。不論在宗教地位或",
-    Remarks: "",
-    Parkinginfo_py: "0",
-    Parkinginfo_px: "0",
-    Name: "玫瑰聖母聖殿主教座堂",
-    Level: null,
-    Picture1: "http://khh.travel/FileArtPic.ashx?id=2424&w=1280&h=960",
-    Toldescribe: "經常在電視廣告上看到一棟造型優雅的教堂， 以為是在外國取景拍攝呢， 才發現這是臺灣最大主教座堂-「玫瑰聖母聖殿主教座堂」。鄰近愛河畔的玫瑰聖母教堂，創始於1859年，為天主教會在臺灣重新開教建立的第一座教堂，也是近代臺灣天主教會發源地，一百多年來，是無數南部民眾的信仰憑藉。現在為天主教高雄教區主教座堂，也是亞洲三大聖堂之一。主教堂的整體建築造型仿歐洲歌德式教堂風格，並混合部分羅馬風格，參天聳立的尖塔，拱型窗櫺與玫瑰花窗，呈現出哥德式建築風采，優美而華麗；內部以七對柱子分成中殿及兩側通廊，而兩側夾層之間及天花板以交叉拱筋構成，聖壇以八角環形的方式處理，別具特色美感。正門上方有清領時期奉旨碑，其左右兩側有教宗、樞機主教的牧徽。 玫瑰聖母堂也是亞洲三大聖堂之一，外觀典雅，內部莊嚴的特殊景致，在現代都市化建築中，顯得風格獨具，更在2001年在臺灣歷史建築百景票選中榮獲全國第一。不論在宗教地位或建築的藝術價值上，都佔有極重要的地位。",
-    Changetime: "2015-06-05T17:31:37",
-    Tel: "886-7-2214434",
-    Picdescribe1: "玫瑰聖母聖殿主教座堂",
-    Travellinginfo: "",
-    _id: 250,
-    Id: "C1_397000000A_000626"
-  },
-  {
-    Ticketinfo: "免費參觀",
-    _full_count: "8",
-    Zone: "苓雅區",
-    Px: "120.29381",
-    Py: "22.61771",
-    rank: 0.0573088,
-    Add: "高雄市苓雅區海邊路與新田路口",
-    Gov: "397000000A",
-    Class2: null,
-    Class1: "12",
-    Website: "",
-    Opentime: "全天候開放",
-    Description: "光榮碼頭位於愛河出海口及高雄港的交界，曾是載運金馬人員及軍事物資重地的13號碼頭，在功成身退後更名為光榮碼頭並開放成觀光遊憩區。長達五百公尺的弧型景觀廊道綠意盎然，親水廣場佔地廣大、視野遼闊，在此不論是眺望碧海藍天與城市高樓景觀交映的壯麗景觀，或是欣賞高雄港日夜晨昏不同的風光皆讓人陶然沈醉。光榮碼頭與對岸鹽埕區的真愛碼頭遙遙相望，更有腳踏車道串連兩岸，可以自在悠遊的享受港都之美。目前正在碼頭附近興建流行音樂中心，預計2017年啟用後將使光榮碼頭區成為高雄市引領風尚的多元休憩文化區域。",
-    Remarks: "",
-    Parkinginfo_py: "22.61848",
-    Parkinginfo_px: "120.29248",
-    Name: "光榮碼頭",
-    Level: null,
-    Picture1: "http://khh.travel/FileArtPic.ashx?id=3287&w=1280&h=960",
-    Toldescribe: "光榮碼頭位於愛河出海口及高雄港的交界，曾是載運金馬人員及軍事物資重地的13號碼頭，在功成身退後更名為光榮碼頭並開放成觀光遊憩區。長達五百公尺的弧型景觀廊道綠意盎然，親水廣場佔地廣大、視野遼闊，在此不論是眺望碧海藍天與城市高樓景觀交映的壯麗景觀，或是欣賞高雄港日夜晨昏不同的風光皆讓人陶然沈醉。光榮碼頭與對岸鹽埕區的真愛碼頭遙遙相望，更有腳踏車道串連兩岸，可以自在悠遊的享受港都之美。目前正在碼頭附近興建流行音樂中心，預計2017年啟用後將使光榮碼頭區成為高雄市引領風尚的多元休憩文化區域。",
-    Changetime: "2015-06-12T10:29:09",
-    Tel: "886-7-7995678",
-    Picdescribe1: "光榮碼頭",
-    Travellinginfo: "",
-    _id: 73,
-    Id: "C1_397000000A_000084"
-  },
-  {
-    Ticketinfo: "",
-    _full_count: "8",
-    Zone: "苓雅區",
-    Px: "120.29773",
-    Py: "22.60905",
-    rank: 0.0573088,
-    Add: "高雄市苓雅區新光路底與成功二路交叉口",
-    Gov: "397000000A",
-    Class2: null,
-    Class1: "12",
-    Website: "",
-    Opentime: "全天候開放",
-    Description: "位於新光路底高雄85大樓旁的新光碼頭，透過多項創意十足的休憩設施及公共藝術作品，成功活化港區舊有風貌。可以悠遊漫步、聽海潮、嗅海風。環狀挑高的空中迴廊，可讓港灣風光盡收眼底。一旁造型時尚的高雄展覽館、綠意盎然的高雄圖書總館以及夜晚燈光炫目的中鋼大樓，讓新光碼頭的夜晚景色更加璀燦。除了步行木棧道及觀景台之外，最吸引目光的就是兒童戲水池，特色在於噴水器造型仿照港口貨櫃吊臂意象設計，大紅色噴水器襯映藍色池水和天空，顯得格外醒目。",
-    Remarks: "",
-    Parkinginfo_py: "0",
-    Parkinginfo_px: "0",
-    Name: "新光碼頭",
-    Level: null,
-    Picture1: "http://khh.travel/FileArtPic.ashx?id=802&w=1280&h=960",
-    Toldescribe: "位於新光路底高雄85大樓旁的新光碼頭，透過多項創意十足的休憩設施及公共藝術作品，成功活化港區舊有風貌。可以悠遊漫步、聽海潮、嗅海風。環狀挑高的空中迴廊，可讓港灣風光盡收眼底。一旁造型時尚的高雄展覽館、綠意盎然的高雄圖書總館以及夜晚燈光炫目的中鋼大樓，讓新光碼頭的夜晚景色更加璀燦。除了步行木棧道及觀景台之外，最吸引目光的就是兒童戲水池，特色在於噴水器造型仿照港口貨櫃吊臂意象設計，大紅色噴水器襯映藍色池水和天空，顯得格外醒目。",
-    Changetime: "2015-06-04T17:23:57",
-    Tel: "886-7-7995678",
-    Picdescribe1: "新光碼頭",
-    Travellinginfo: "",
-    _id: 175,
-    Id: "C1_397000000A_000243"
-  },
-  {
-    Ticketinfo: "",
-    _full_count: "8",
-    Zone: "苓雅區",
-    Px: "120.31793",
-    Py: "22.62607",
-    rank: 0.0573088,
-    Add: "高雄市苓雅區五福一路67號",
-    Gov: "397000000A",
-    Class2: null,
-    Class1: "12",
-    Website: "",
-    Opentime: "全天候開放",
-    Description: "高雄市文化中心成立於民國70年4月16日，戶外綠地面積廣達7.055 公頃，是高雄文化建設的象徵，位於其側的廣州一街也聚集許多畫廊，文化中心不僅提供高雄市民休閒遊憩的場所，更豐富了港都市民的藝術視野。除了提供藝文表演的演藝廳堂，另有文物陳列館、紀念廳、會議館、展覽室及圖書館等，環繞於文化中心周邊，充滿人文氣息的「市民藝術大道」則塑造出獨一無二的空間，人行道上的藝術座椅、鋼雕藝術品與馬賽克地面拼畫等藝術裝置更成為「城市美學」的範本。拆除圍牆後的高雄市立文化中心，轉型成全開放式空間，只要走在人行步道上，就能感受到園區內茂密樹林帶來的愜意。這裡也是高雄市各大藝文活動的主要舉辦場所，重新粉刷後的主建築物外牆，沉穩洗練的灰白色調，讓文化中心更多了份迷人的優雅氣息。高雄文化中心市民藝術大道週邊，有石鼓、陽光驛站、鋼雕藝術、創意公車站、情詩散步道等，塑造濃厚藝文風情，每週六、日傍晚的藝術市集，更是街",
-    Remarks: "",
-    Parkinginfo_py: "0",
-    Parkinginfo_px: "0",
-    Name: "高雄市立文化中心",
-    Level: null,
-    Picture1: "http://khh.travel/FileArtPic.ashx?id=731&w=1280&h=960",
-    Toldescribe: "高雄市文化中心成立於民國70年4月16日，戶外綠地面積廣達7.055 公頃，是高雄文化建設的象徵，位於其側的廣州一街也聚集許多畫廊，文化中心不僅提供高雄市民休閒遊憩的場所，更豐富了港都市民的藝術視野。除了提供藝文表演的演藝廳堂，另有文物陳列館、紀念廳、會議館、展覽室及圖書館等，環繞於文化中心周邊，充滿人文氣息的「市民藝術大道」則塑造出獨一無二的空間，人行道上的藝術座椅、鋼雕藝術品與馬賽克地面拼畫等藝術裝置更成為「城市美學」的範本。拆除圍牆後的高雄市立文化中心，轉型成全開放式空間，只要走在人行步道上，就能感受到園區內茂密樹林帶來的愜意。這裡也是高雄市各大藝文活動的主要舉辦場所，重新粉刷後的主建築物外牆，沉穩洗練的灰白色調，讓文化中心更多了份迷人的優雅氣息。高雄文化中心市民藝術大道週邊，有石鼓、陽光驛站、鋼雕藝術、創意公車站、情詩散步道等，塑造濃厚藝文風情，每週六、日傍晚的藝術市集，更是街頭藝人及文創作品的舞台。",
-    Changetime: "2015-06-04T18:33:38",
-    Tel: "886-7-2225136",
-    Picdescribe1: "高雄市立文化中心",
-    Travellinginfo: "",
-    _id: 188,
-    Id: "C1_397000000A_000564"
-  },
-  {
-    Ticketinfo: "",
-    _full_count: "8",
-    Zone: "苓雅區",
-    Px: "120.30026",
-    Py: "22.61164",
-    rank: 0.0573088,
-    Add: "高雄市苓雅區自強三路5號",
-    Gov: "397000000A",
-    Class2: null,
-    Class1: "18",
-    Website: "",
-    Opentime: "每日10:00-22:00(74樓觀景台)",
-    Description: "矗立於高雄港邊的高雄85大樓，位處於高雄精華地段，不僅是高雄重要的地標，仿「高」字設計的摩天建築，中間特別設計風洞增加建築的安全性。樓高347.5公尺，加上天線共高378公尺；地上85層、地下5層，完工於1997年。大樓內的夢幻電梯，當上昇到120公尺時，電梯燈光將變幻成滿天星斗，讓您彷佛進入燦爛星空。在觀景樓俯瞰高雄市壯麗的海景與市景，令人心曠神怡，能見度好的時候還可看到屏東外海的小琉球。",
-    Remarks: "74樓觀景台營業時間為每日10:00-22:00",
-    Parkinginfo_py: "0",
-    Parkinginfo_px: "0",
-    Name: "八五大樓",
-    Level: null,
-    Picture1: "http://khh.travel/FileArtPic.ashx?id=2222&w=1280&h=960",
-    Toldescribe: "矗立於高雄港邊的高雄85大樓，位處於高雄精華地段，不僅是高雄重要的地標，仿「高」字設計的摩天建築，中間特別設計風洞增加建築的安全性。樓高347.5公尺，加上天線共高378公尺；地上85層、地下5層，完工於1997年。大樓內的夢幻電梯，當上昇到120公尺時，電梯燈光將變幻成滿天星斗，讓您彷佛進入燦爛星空。在觀景樓俯瞰高雄市壯麗的海景與市景，令人心曠神怡，能見度好的時候還可看到屏東外海的小琉球。",
-    Changetime: "2015-06-04T15:31:49",
-    Tel: "886-7-5668000",
-    Picdescribe1: "八五大樓",
-    Travellinginfo: "",
-    _id: 148,
-    Id: "C1_397000000A_000216"
-  },
-  {
-    Ticketinfo: "免費參觀",
-    _full_count: "8",
-    Zone: "苓雅區",
-    Px: "120.34207",
-    Py: "22.62798",
-    rank: 0.0573088,
-    Add: "高雄市苓雅區建軍路11號",
-    Gov: "397000000A",
-    Class2: null,
-    Class1: "4",
-    Website: "http://www.kh-masjid.org.tw/",
-    Opentime: "每日09:00-20:30",
-    Description: "高雄清真寺為臺灣第二座清真寺，創建於1949年，是當時隨政府遷台的軍、公、教人員並篤信伊斯蘭教的穆斯林倡議籌款所設立，由於穆民日眾不敷使用，又於1990年改建如今的規模。高雄清真寺外觀是典型的伊斯蘭教風格，清新的綠色方型建築、中有圓拱尖頂及叫拜塔樓，內部則有寬敞明亮的禮拜大廳，是南部最大的回教信仰中心。",
-    Remarks: "",
-    Parkinginfo_py: "0",
-    Parkinginfo_px: "0",
-    Name: "高雄清真寺",
-    Level: null,
-    Picture1: "http://khh.travel/FileArtPic.ashx?id=2000&w=1280&h=960",
-    Toldescribe: "高雄清真寺為臺灣第二座清真寺，創建於1949年，是當時隨政府遷台的軍、公、教人員並篤信伊斯蘭教的穆斯林倡議籌款所設立，由於穆民日眾不敷使用，又於1990年改建如今的規模。高雄清真寺外觀是典型的伊斯蘭教風格，清新的綠色方型建築、中有圓拱尖頂及叫拜塔樓，內部則有寬敞明亮的禮拜大廳，是南部最大的回教信仰中心。",
-    Changetime: "2015-06-03T17:20:02",
-    Tel: "886-7-7496812",
-    Picdescribe1: "高雄清真寺",
-    Travellinginfo: "",
-    _id: 77,
-    Id: "C1_397000000A_000086"
-  },
-  {
-    Ticketinfo: "免費參觀",
-    _full_count: "8",
-    Zone: "苓雅區",
-    Px: "120.29558",
-    Py: "22.61344",
-    rank: 0.0573088,
-    Add: "高雄市苓雅區苓東路14號",
-    Gov: "397000000A",
-    Class2: null,
-    Class1: "3",
-    Website: "http://www.cccf.com.tw/",
-    Opentime: "每月第二個週六10:00-16:30",
-    Description: "位於苓雅區的陳中和紀念館曾為高雄第一望族陳中和家族的宅邸。1925年落成的巴洛克式洋房建地900坪，連同庭院廣達2700坪，建築考究精緻、典雅大器，是昔日高雄地區第一棟私人洋樓。建築物是磚造二層樓建物，外部有考究的拱圈、圓柱、迴廊、三角山牆等西方建築元素，內部則為九宮格設計，古典式山牆、老虎窗、拱心石、地板撲面、窗框、石柱等，仍然閩南的傳統建築格局，充分地展現出其閩洋折衷的特色建築。曾經風華?代的第一洋樓隨著歲月斑駁褪色，陳家後人成立的基金會在1996年特地委由成大建築系依照史料修復並開放參觀，並展示陳家文物。漫步於充滿昔日風華的迴廊，處處能品味建築美感與昔日望族的風華歷史，文藝活動更能滋潤心靈，依著欄杆遠眺港口夕照，遼闊海景無限美好。",
-    Remarks: "",
-    Parkinginfo_py: "0",
-    Parkinginfo_px: "0",
-    Name: "陳中和紀念館",
-    Level: null,
-    Picture1: "http://khh.travel/FileArtPic.ashx?id=1991&w=1280&h=960",
-    Toldescribe: "位於苓雅區的陳中和紀念館曾為高雄第一望族陳中和家族的宅邸。1925年落成的巴洛克式洋房建地900坪，連同庭院廣達2700坪，建築考究精緻、典雅大器，是昔日高雄地區第一棟私人洋樓。建築物是磚造二層樓建物，外部有考究的拱圈、圓柱、迴廊、三角山牆等西方建築元素，內部則為九宮格設計，古典式山牆、老虎窗、拱心石、地板撲面、窗框、石柱等，仍然閩南的傳統建築格局，充分地展現出其閩洋折衷的特色建築。曾經風華?代的第一洋樓隨著歲月斑駁褪色，陳家後人成立的基金會在1996年特地委由成大建築系依照史料修復並開放參觀，並展示陳家文物。漫步於充滿昔日風華的迴廊，處處能品味建築美感與昔日望族的風華歷史，文藝活動更能滋潤心靈，依著欄杆遠眺港口夕照，遼闊海景無限美好。",
-    Changetime: "2015-06-03T17:15:38",
-    Tel: "886-7-3315640",
-    Picdescribe1: "陳中和紀念館",
-    Travellinginfo: "",
-    _id: 81,
-    Id: "C1_397000000A_000085"
-  },
-  {
-    Ticketinfo: "免費參觀",
-    _full_count: "8",
-    Zone: "苓雅區",
-    Px: "120.33155",
-    Py: "22.63027",
-    rank: 0.0573088,
-    Add: "高雄市苓雅區武廟路52號",
-    Gov: "397000000A",
-    Class2: null,
-    Class1: "4",
-    Website: "http://www.kdm.org.tw/",
-    Opentime: "每日06:00-23:00",
-    Description: "高雄關帝廟，舊名「關帝廳」，是高雄香火鼎盛、歷史優久的寺廟，推測已創廟超過三百年的歲月。關帝廟廟主祀關聖帝君關羽，為忠義的象徵，配祀註生娘娘及福德正神，後殿則同祀觀音菩薩，配祀普賢菩薩及文殊菩薩。另有文昌殿、財神殿及月下老人供信徒，總是擠滿膜拜祈求好運平安的善男信女。三層樓高的廟身是黃瓦紅牆的宮殿式建築，莊嚴華麗，近年來關帝廟致力將宗教文化與觀光結合，特別是每年春節至元宵期間都會舉辦活動，其中包括乞平安龜、吃平安壽麵、猜燈謎和創意花燈大展等，是認識台灣傳統民俗節慶、祈福參拜的最佳場所。",
-    Remarks: "",
-    Parkinginfo_py: "0",
-    Parkinginfo_px: "0",
-    Name: "高雄關帝廟(武廟)",
-    Level: null,
-    Picture1: "http://khh.travel/FileArtPic.ashx?id=1204&w=1280&h=960",
-    Toldescribe: "高雄關帝廟，舊名「關帝廳」，是高雄香火鼎盛、歷史優久的寺廟，推測已創廟超過三百年的歲月。關帝廟廟主祀關聖帝君關羽，為忠義的象徵，配祀註生娘娘及福德正神，後殿則同祀觀音菩薩，配祀普賢菩薩及文殊菩薩。另有文昌殿、財神殿及月下老人供信徒，總是擠滿膜拜祈求好運平安的善男信女。三層樓高的廟身是黃瓦紅牆的宮殿式建築，莊嚴華麗，近年來關帝廟致力將宗教文化與觀光結合，特別是每年春節至元宵期間都會舉辦活動，其中包括乞平安龜、吃平安壽麵、猜燈謎和創意花燈大展等，是認識台灣傳統民俗節慶、祈福參拜的最佳場所。",
-    Changetime: "2015-06-03T17:26:22",
-    Tel: "886-7-7218782",
-    Picdescribe1: "高雄關帝廟(武廟)",
-    Travellinginfo: "",
-    _id: 78,
-    Id: "C1_397000000A_000087"
-  },
-  {
-    Ticketinfo: "",
-    _full_count: "16",
-    Zone: "三民區",
-    Px: "120.30369",
-    Py: "22.65294",
-    rank: 0.0573088,
-    Add: "高雄市三民區博愛一路和同盟一路、二路",
-    Gov: "397000000A",
-    Class2: "12",
-    Class1: "13",
-    Website: "",
-    Opentime: "全天候開放",
-    Description: "若要找尋高雄市區最浪漫璀璨的夜景，位於同盟路與博愛路交叉口的愛河之心?對是不二選擇。佔地1.4平方公里的愛河之心是二個人工蓄洪湖構成，較淺的東湖是生態池，打造的仿自然環境供魚蝦生物棲息生長，西湖因水位較深，除了滯洪及生態功能外還供愛河遊船行駛停靠，兩湖之間由空橋連繫，形成美麗的心型。每當夜幕低垂，彩色燈光投影在湖畔水景噴泉及橋面，白色縷空護欄也映照出朵朵美麗心花，猶如愛河上最閃爍燦爛的珠寶，浪漫情調總是吸引遊客情侶在湖畔漫遊、不捨離去。愛河之心交通便捷，除公路捷運外，尚有水路遊船及單車步道，是體會夜高雄之美的最佳去處。",
-    Remarks: "",
-    Parkinginfo_py: "0",
-    Parkinginfo_px: "0",
-    Name: "愛河之心",
-    Level: null,
-    Picture1: "http://khh.travel/FileArtPic.ashx?id=995&w=1280&h=960",
-    Toldescribe: "若要找尋高雄市區最浪漫璀璨的夜景，位於同盟路與博愛路交叉口的愛河之心?對是不二選擇。佔地1.4平方公里的愛河之心是二個人工蓄洪湖構成，較淺的東湖是生態池，打造的仿自然環境供魚蝦生物棲息生長，西湖因水位較深，除了滯洪及生態功能外還供愛河遊船行駛停靠，兩湖之間由空橋連繫，形成美麗的心型。每當夜幕低垂，彩色燈光投影在湖畔水景噴泉及橋面，白色縷空護欄也映照出朵朵美麗心花，猶如愛河上最閃爍燦爛的珠寶，浪漫情調總是吸引遊客情侶在湖畔漫遊、不捨離去。愛河之心交通便捷，除公路捷運外，尚有水路遊船及單車步道，是體會夜高雄之美的最佳去處。",
-    Changetime: "2015-06-08T17:18:10",
-    Tel: "886-7-7995678",
-    Picdescribe1: "愛河之心",
-    Travellinginfo: "",
-    _id: 8,
-    Id: "C1_397000000A_000016"
-  },
-  {
-  Ticketinfo: "免費參觀",
-  _full_count: "16",
-  Zone: "三民區",
-  Px: "120.32707",
-  Py: "22.6727",
-  rank: 0.0573088,
-  Add: "高雄市三民區鼎金後路461巷",
-  Gov: "397000000A",
-  Class2: null,
-  Class1: "2",
-  Website: "",
-  Opentime: "全天候開放",
-  Description: "狹長型的檨仔林埤濕地公園位於高雄市三民區，鼎金後路與鼎金系統交流道之間，是高雄市近年來整治成功，兼具滯洪、防洪、休閒教育與生態功能的埤塘濕地公園之一。園區北側有「生態密林區」，茂密的原生檨仔樹林如同都市之肺，可以阻隔、緩衝北側高速公路對生態與環境造成的干擾; 「生態維持區」則將原有地形疏浚深化，形成生態浮島與水域栽培育區，遍植野薑花、慈菇、香蒲等水生植物，利用生態池水體自淨機制淨化水質。清新的環境與自然的綠意，吸引水鳥與生物棲息，腳踏車道與林蔭綠意提供遊人休憩放鬆的清淨角落，也是高雄市美麗的後花園。",
-  Remarks: "",
-  Parkinginfo_py: "0",
-  Parkinginfo_px: "0",
-  Name: "檨仔林埤濕地公園",
-  Level: null,
-  Picture1: "http://khh.travel/FileArtPic.ashx?id=979&w=1280&h=960",
-  Toldescribe: "狹長型的檨仔林埤濕地公園位於高雄市三民區，鼎金後路與鼎金系統交流道之間，是高雄市近年來整治成功，兼具滯洪、防洪、休閒教育與生態功能的埤塘濕地公園之一。園區北側有「生態密林區」，茂密的原生檨仔樹林如同都市之肺，可以阻隔、緩衝北側高速公路對生態與環境造成的干擾; 「生態維持區」則將原有地形疏浚深化，形成生態浮島與水域栽培育區，遍植野薑花、慈菇、香蒲等水生植物，利用生態池水體自淨機制淨化水質。清新的環境與自然的綠意，吸引水鳥與生物棲息，腳踏車道與林蔭綠意提供遊人休憩放鬆的清淨角落，也是高雄市美麗的後花園。",
-  Changetime: "2015-06-02T14:03:30",
-  Tel: "886-7-7995678",
-  Picdescribe1: "檨仔林埤濕地公園",
-  Travellinginfo: "",
-  _id: 3,
-  Id: "C1_397000000A_000011"
-  },
-  {
-  Ticketinfo: "",
-  _full_count: "16",
-  Zone: "三民區",
-  Px: "120.32692",
-  Py: "22.66627",
-  rank: 0.0573088,
-  Add: "高雄市三民區鼎金一巷36號",
-  Gov: "397000000A",
-  Class2: null,
-  Class1: "4",
-  Website: "http://baoangong.match-shop.com/",
-  Opentime: "每日05:30-22:00",
-  Description: "保安宮背倚獅山面臨金獅湖畔，走過仰之彌高的巨大牌坊，華北式的三層樓廟堂映入眼簾，高大雄偉的樑柱斗拱雕工精緻華美，大殿前尚有九龍浮雕，氣勢巍峨。大殿供奉中壇元帥哪吒三太子金身，鐘樓鼓樓屹立二側、莊嚴典雅。保安宮背山面水、鐘靈毓秀，廟前仿蘆溝橋橋體綴滿造型各異的大小石獅，映照在蓮花點點的湖面更顯清麗脫俗，是兼具宗教與休憩、足以安頓身心靈的景點。",
-  Remarks: "",
-  Parkinginfo_py: "0",
-  Parkinginfo_px: "0",
-  Name: "覆鼎金保安宮",
-  Level: null,
-  Picture1: "http://khh.travel/FileArtPic.ashx?id=243&w=1280&h=960",
-  Toldescribe: "保安宮背倚獅山面臨金獅湖畔，走過仰之彌高的巨大牌坊，華北式的三層樓廟堂映入眼簾，高大雄偉的樑柱斗拱雕工精緻華美，大殿前尚有九龍浮雕，氣勢巍峨。大殿供奉中壇元帥哪吒三太子金身，鐘樓鼓樓屹立二側、莊嚴典雅。保安宮背山面水、鐘靈毓秀，廟前仿蘆溝橋橋體綴滿造型各異的大小石獅，映照在蓮花點點的湖面更顯清麗脫俗，是兼具宗教與休憩、足以安頓身心靈的景點。",
-  Changetime: "2015-06-12T10:49:58",
-  Tel: "886-7-3423488",
-  Picdescribe1: "覆鼎金保安宮",
-  Travellinginfo: "",
-  _id: 171,
-  Id: "C1_397000000A_000239"
-  },
-  {
-  Ticketinfo: "",
-  _full_count: "16",
-  Zone: "三民區",
-  Px: "120.29416",
-  Py: "22.63584",
-  rank: 0.0573088,
-  Add: "高雄市三民區河北二路134號",
-  Gov: "397000000A",
-  Class2: null,
-  Class1: "4",
-  Website: "https://www.sunfong.org.tw/",
-  Opentime: "每日05:00-22:00",
-  Description: "三?宮舊名三?亭，初建於清朝康熙年間，至今已有三百餘年的歷史，為昔日三塊厝住民(高雄火車站前、建國三路附近)的守護神，祭祀主神為中壇元帥哪吒三太子。1971年遷至河北二路現址，北方式的三層樓寺廟建築不論雕刻配色均典雅華麗，以平塗彩繪技法方式的門神出自大師潘麗水之作，莊嚴細膩，廣?的廟埕更添加恢宏氣勢。三?宮是全台最大的三太子廟，每逢慶典來自各地的三太子陣頭不分畫夜的競技表演吸引信眾，儼然是宗教界最歡欣熱鬧的嘉年華會。",
-  Remarks: "",
-  Parkinginfo_py: "0",
-  Parkinginfo_px: "0",
-  Name: "三鳳宮",
-  Level: null,
-  Picture1: "http://khh.travel/FileArtPic.ashx?id=1644&w=1280&h=960",
-  Toldescribe: "三?宮舊名三?亭，初建於清朝康熙年間，至今已有三百餘年的歷史，為昔日三塊厝住民(高雄火車站前、建國三路附近)的守護神，祭祀主神為中壇元帥哪吒三太子。1971年遷至河北二路現址，北方式的三層樓寺廟建築不論雕刻配色均典雅華麗，以平塗彩繪技法方式的門神出自大師潘麗水之作，莊嚴細膩，廣?的廟埕更添加恢宏氣勢。三?宮是全台最大的三太子廟，每逢慶典來自各地的三太子陣頭不分畫夜的競技表演吸引信眾，儼然是宗教界最歡欣熱鬧的嘉年華會。",
-  Changetime: "2015-06-05T18:05:52",
-  Tel: "886-7-2871851",
-  Picdescribe1: "三鳳宮",
-  Travellinginfo: "",
-  _id: 256,
-  Id: "C1_397000000A_000634"
-  },
-  {
-  Ticketinfo: "",
-  _full_count: "16",
-  Zone: "三民區",
-  Px: "120.32676",
-  Py: "22.66769",
-  rank: 0.0573088,
-  Add: "高雄市三民區鼎金1巷27號",
-  Gov: "397000000A",
-  Class2: null,
-  Class1: "4",
-  Website: "",
-  Opentime: "每日06:00-21:00",
-  Description: "金獅湖道德院供奉道家的開山始祖--老子(太上道祖)的道德院為華南式的宮殿建築，依獅山面湖而建，更顯其毓秀不凡的氣質。據聞道德院的後殿樓下凹處為「獅喉」寶穴所在地，道德院將其如「聚寶盆」般固守於殿宇之內，供信徒膜拜清修。而每年農曆 2月太上道祖誕辰，廟方皆會辦理規模盛大的燈會，慶典期間張燈結彩、與湖光山色倒映成趣，成為金獅湖最美的風景。",
-  Remarks: "",
-  Parkinginfo_py: "0",
-  Parkinginfo_px: "0",
-  Name: "金獅湖道德院",
-  Level: null,
-  Picture1: "http://khh.travel/FileArtPic.ashx?id=991&w=1280&h=960",
-  Toldescribe: "金獅湖道德院供奉道家的開山始祖--老子(太上道祖)的道德院為華南式的宮殿建築，依獅山面湖而建，更顯其毓秀不凡的氣質。據聞道德院的後殿樓下凹處為「獅喉」寶穴所在地，道德院將其如「聚寶盆」般固守於殿宇之內，供信徒膜拜清修。而每年農曆 2月太上道祖誕辰，廟方皆會辦理規模盛大的燈會，慶典期間張燈結彩、與湖光山色倒映成趣，成為金獅湖最美的風景。",
-  Changetime: "2015-06-03T14:11:39",
-  Tel: "886-7-3426421",
-  Picdescribe1: "金獅湖道德院",
-  Travellinginfo: "",
-  _id: 6,
-  Id: "C1_397000000A_000014"
-  },
-  {
-  Ticketinfo: "",
-  _full_count: "16",
-  Zone: "三民區",
-  Px: "120.28904",
-  Py: "22.62483",
-  rank: 0.0573088,
-  Add: "高雄市三民區同盟路接河東、河西路",
-  Gov: "397000000A",
-  Class2: null,
-  Class1: "12",
-  Website: "",
-  Opentime: "全天候開放",
-  Description: "愛河源於高雄市仁武區八卦寮，流入市區後，將市區一分為二，有建國、七賢、中正、高雄等橋橫跨其間，並在高雄港出海。 愛河最初僅是一條淺溪可供渡船往來，日治時期曾加以疏濬成為運河，並定名為「高雄川」，這是愛河第一次有正式的稱謂，但一般人仍習稱它為「高雄圳」或「高雄運河」。 民國37年在河岸靠中正橋邊，有人開設「愛河遊船所」供人划船遊河，因時有情侶划舟談情說愛，口耳相傳後，才有了全台獨特的名稱－愛河。 愛河，是高雄市最具文化特色的河流，早年扮演著運輸、交通、遊憩等多功能角色，如今走過歲月、歷盡滄桑的愛河，雖曾飽嘗污染，但疼惜她的高雄人，包括政府和民間企業、藝文人士都挖空心思，逐步恢復愛河風華，已讓愛河步步的重現生機。在愛河東岸有一奇特壯觀的造型雕塑安置，原是2001年高雄燈會為發揚「高雄海洋首都」所創造的概念主燈。 龍首魚身的造形意指高雄即將就此蛻變，主燈「鰲」總高度25公尺，重量30;000",
-  Remarks: "",
-  Parkinginfo_py: "0",
-  Parkinginfo_px: "0",
-  Name: "愛河",
-  Level: null,
-  Picture1: "http://khh.travel/FileArtPic.ashx?id=1660&w=1280&h=960",
-  Toldescribe: "愛河源於高雄市仁武區八卦寮，流入市區後，將市區一分為二，有建國、七賢、中正、高雄等橋橫跨其間，並在高雄港出海。 愛河最初僅是一條淺溪可供渡船往來，日治時期曾加以疏濬成為運河，並定名為「高雄川」，這是愛河第一次有正式的稱謂，但一般人仍習稱它為「高雄圳」或「高雄運河」。 民國37年在河岸靠中正橋邊，有人開設「愛河遊船所」供人划船遊河，因時有情侶划舟談情說愛，口耳相傳後，才有了全台獨特的名稱－愛河。 愛河，是高雄市最具文化特色的河流，早年扮演著運輸、交通、遊憩等多功能角色，如今走過歲月、歷盡滄桑的愛河，雖曾飽嘗污染，但疼惜她的高雄人，包括政府和民間企業、藝文人士都挖空心思，逐步恢復愛河風華，已讓愛河步步的重現生機。在愛河東岸有一奇特壯觀的造型雕塑安置，原是2001年高雄燈會為發揚「高雄海洋首都」所創造的概念主燈。 龍首魚身的造形意指高雄即將就此蛻變，主燈「鰲」總高度25公尺，重量30;000公斤，全以不銹鋼材打造。配合節慶活動，龍身定時燈光變幻、口吐輕煙，極獲遊客喜愛駐足觀賞。",
-  Changetime: "2016-08-04T15:15:26",
-  Tel: "886-7-7995678",
-  Picdescribe1: "愛河",
-  Travellinginfo: "",
-  _id: 261,
-  Id: "C1_397000000A_000637"
-  },
-  {
-  Ticketinfo: "",
-  _full_count: "16",
-  Zone: "三民區",
-  Px: "120.29629",
-  Py: "22.65156",
-  rank: 0.0573088,
-  Add: "高雄市三民區同盟路與自立路口的三民一號公園內",
-  Gov: "397000000A",
-  Class2: null,
-  Class1: "18",
-  Website: "",
-  Opentime: "全天候開放",
-  Description: "光之塔是件資源再生的成功案例，這座原本位於三民一號公園內的高壓電鐵塔在電纜地下化後功成身退，幻化成絢麗新潮的光明景點。光之塔高約四十公尺，依照彩虹七彩顏色加以彩繪，在高雄豔陽下耀眼動人，拾級而上觀景台可以俯瞰愛河及柴山綿延的天際線，欄杆上設置36塊電力解說板，從發電、輸電、配電系統到再生能源等，在觀光遊憩之外還兼具電力知識的教育功能。到了夜晚，運用太陽能發電的LED燈則幻化流轉出繽紛奪目的色彩，為高雄市的夜晚增添嫵媚丰采。冰冷的高壓電塔透過現代科技及藝術變得親近可人，不但保留了居民心中的舊時回憶，也為高雄的白天與黑夜寫下亮麗如花火的新頁。",
-  Remarks: "",
-  Parkinginfo_py: "0",
-  Parkinginfo_px: "0",
-  Name: "光之塔",
-  Level: null,
-  Picture1: "http://khh.travel/FileArtPic.ashx?id=200&w=1280&h=960",
-  Toldescribe: "光之塔是件資源再生的成功案例，這座原本位於三民一號公園內的高壓電鐵塔在電纜地下化後功成身退，幻化成絢麗新潮的光明景點。光之塔高約四十公尺，依照彩虹七彩顏色加以彩繪，在高雄豔陽下耀眼動人，拾級而上觀景台可以俯瞰愛河及柴山綿延的天際線，欄杆上設置36塊電力解說板，從發電、輸電、配電系統到再生能源等，在觀光遊憩之外還兼具電力知識的教育功能。到了夜晚，運用太陽能發電的LED燈則幻化流轉出繽紛奪目的色彩，為高雄市的夜晚增添嫵媚丰采。冰冷的高壓電塔透過現代科技及藝術變得親近可人，不但保留了居民心中的舊時回憶，也為高雄的白天與黑夜寫下亮麗如花火的新頁。",
-  Changetime: "2016-01-20T11:49:29",
-  Tel: "886-7-7995678",
-  Picdescribe1: "光之塔",
-  Travellinginfo: "",
-  _id: 163,
-  Id: "C1_397000000A_000231"
-  },
-  {
-    Ticketinfo: "",
-    _full_count: "16",
-    Zone: "三民區",
-    Px: "120.32626",
-    Py: "22.66697",
-    rank: 0.0573088,
-    Add: "高雄市三民區金鼎路114巷11-2號",
-    Gov: "397000000A",
-    Class2: null,
-    Class1: "12",
-    Website: "http://twup.org/khbutterfly/",
-    Opentime: "金獅湖：全天候開放，金獅湖蝴蝶園區：每日09:00-16:30；每週一休園",
-    Description: "<金獅湖>金獅湖原名大埤，因後有獅山、鉤狀湖面狀似伏獅而得名，水域面積約11公頃，是愛河源頭的儲水埤塘之一，具有防洪調節水量的功能。湖畔有金色的巨大石獅及環湖迴廊，綠蔭濃密、湖中蓮花點點，不論清晨、黃昏，佇立其間聆聽蟲嗚鳥唱，俯視湖光倒映的瑰麗晨曦夕照，都令人流連忘返，更有新設的光橋入夜後如長虹懸掛南北兩岸，景色迷人。由於湖畔環繞著獅山公園、蝴蝶自然生態館、道德院及以保安宮，多元的景點很適合闔家遊玩賞景。<金獅湖蝴蝶園區>蝴蝶園位於金獅湖風景區東側，戶外種植花草水池吸引野生蝴蝶停駐，二個大型展館共佔地1350坪，內部植滿了蝴蝶食草與蜜源植物、潺潺流水穿越小橋，訪客可沿著木棧道蜿蜒深入群蝶飛舞的靜謐仙境之中，也可在觀察箱近距離觀察成蛹化蝶的生態。有鑑於都市中蝴蝶的自然生態環境已遭嚴重破壞，蝴蝶園如同小伊甸園般保存了蝴蝶所需的棲地生態，更肩負起蝴蝶保育的功能，多年來復育不少保育類蝴",
-    Remarks: "",
-    Parkinginfo_py: "0",
-    Parkinginfo_px: "0",
-    Name: "金獅湖園區",
-    Level: null,
-    Picture1: "http://khh.travel/FileArtPic.ashx?id=744&w=1280&h=960",
-    Toldescribe: "<金獅湖>金獅湖原名大埤，因後有獅山、鉤狀湖面狀似伏獅而得名，水域面積約11公頃，是愛河源頭的儲水埤塘之一，具有防洪調節水量的功能。湖畔有金色的巨大石獅及環湖迴廊，綠蔭濃密、湖中蓮花點點，不論清晨、黃昏，佇立其間聆聽蟲嗚鳥唱，俯視湖光倒映的瑰麗晨曦夕照，都令人流連忘返，更有新設的光橋入夜後如長虹懸掛南北兩岸，景色迷人。由於湖畔環繞著獅山公園、蝴蝶自然生態館、道德院及以保安宮，多元的景點很適合闔家遊玩賞景。<金獅湖蝴蝶園區>蝴蝶園位於金獅湖風景區東側，戶外種植花草水池吸引野生蝴蝶停駐，二個大型展館共佔地1350坪，內部植滿了蝴蝶食草與蜜源植物、潺潺流水穿越小橋，訪客可沿著木棧道蜿蜒深入群蝶飛舞的靜謐仙境之中，也可在觀察箱近距離觀察成蛹化蝶的生態。有鑑於都市中蝴蝶的自然生態環境已遭嚴重破壞，蝴蝶園如同小伊甸園般保存了蝴蝶所需的棲地生態，更肩負起蝴蝶保育的功能，多年來復育不少保育類蝴蝶，不但是小朋友戶外教學的最佳場所、更是高雄人賞心悅目的秘密後花園。",
-    Changetime: "2016-07-28T10:43:11",
-    Tel: "886-7-3108142",
-    Picdescribe1: "金獅湖園區",
-    Travellinginfo: "",
-    _id: 11,
-    Id: "C1_397000000A_000019"
-  },
-]
-
-let regions = document.querySelector('#regions')
-let list = document.querySelector('.list')
-let title = document.querySelector('#title')
-let pagination = document.querySelector('.pagination')
-let pageItems = pagination.getElementsByClassName('page-item')
-let page1 = document.querySelector('.page1')
-let page2 = document.querySelector('.page2')
-let page3 = document.querySelector('.page3')
-let main = document.querySelector('.main')
-
-initList()
-
-// 參考 w3schools.com
-// https://www.w3schools.com/howto/howto_js_active_element.asp
-for (let i = 0; i < pageItems.length; i++) {
-  pageItems[i].addEventListener("click", function() {
-    let current = document.getElementsByClassName("active")
-    current[0].className = current[0].className.replace(" active", "")
-    this.className += " active"
-  })
+async function fetchAsync () {
+  // 解決跨域問題 https://cors-anywhere.herokuapp.com/ + api
+  const api = 'https://cors-anywhere.herokuapp.com/https://data.kcg.gov.tw/api/action/datastore_search?resource_id=92290ee5-6e61-456f-80c0-249eae2fcc97'
+  let response = await fetch(api)
+  let data = await response.json()
+  return data.result.records
 }
 
-regions.addEventListener('change', comparisonRegion)
-main.addEventListener('click', checkButton)
-page1.addEventListener('click', pageOne)
-page2.addEventListener('click', pageTwo)
-page3.addEventListener('click', pageThree)
+fetchAsync().then( records => {
+  const data = records
 
-function comparisonRegion (e) {
-  let select = e.target.value
-  let len = data.length
-  let array = []
-  
-  for(let i = 0; i < len; i++) {
-    if(select === data[i].Zone) {
-      array.push({
-        Name: data[i].Name,
-        Picture1: data[i].Picture1,
-        Opentime: data[i].Opentime,
-        Add: data[i].Add,
-        Tel: data[i].Tel
-      })
+  let regions = document.querySelector('#regions')
+  let list = document.querySelector('.list')
+  let title = document.querySelector('#title')
+  let pagination = document.querySelector('.pagination')
+  let pageItems = pagination.getElementsByClassName('page-item')
+  let page1 = document.querySelector('.page1')
+  let page2 = document.querySelector('.page2')
+  let page3 = document.querySelector('.page3')
+  let main = document.querySelector('.main')
+
+  initList()
+
+  // 參考 w3schools.com
+  // https://www.w3schools.com/howto/howto_js_active_element.asp
+  for (let i = 0; i < pageItems.length; i++) {
+    pageItems[i].addEventListener("click", function() {
+      let current = document.getElementsByClassName("active")
+      current[0].className = current[0].className.replace(" active", "")
+      this.className += " active"
+    })
+  }
+
+  regions.addEventListener('change', comparisonRegion)
+  main.addEventListener('click', checkButton)
+  page1.addEventListener('click', pageOne)
+  page2.addEventListener('click', pageTwo)
+  page3.addEventListener('click', pageThree)
+
+  function comparisonRegion (e) {
+    let select = e.target.value
+    let len = data.length
+    let array = []
+    
+    for(let i = 0; i < len; i++) {
+      if(select === data[i].Zone) {
+        array.push({
+          Name: data[i].Name,
+          Picture1: data[i].Picture1,
+          Opentime: data[i].Opentime,
+          Add: data[i].Add,
+          Tel: data[i].Tel
+        })
+      }
     }
+    
+    updateList(array)
+    title.textContent = select
   }
-  
-  updateList(array)
-  title.textContent = select
-}
 
-function checkButton(e) {
-  if(e.target.nodeName !== 'BUTTON') { return }
-  comparisonRegion(e)
-}
-
-function updateList (items) {
-  let str = ''
-  let len = items.length
-  
-  for(let i = 0; i < len; i++) {
-    str += `<div class="col-6 mt-36">
-      <div class="card h-100">
-        <div class="card-body bg-cover" style="background-image: url('${items[i].Picture1}'); height: 155px;">
-          <div class="card-title">${items[i].Name}</div>
-        </div>
-        <div class="card-footer bg-white">
-          <p class="card-text text-left"><i class="fas fa-clock"></i>${items[i].Opentime}</p>
-          <p class="card-text text-left"><i class="fas fa-map-marker-alt"></i>${items[i].Add}</p>
-          <p class="card-text text-left"><i class="fas fa-mobile-alt"></i>${items[i].Tel}</p>
-        </div>
-      </div>
-    </div>`
+  function checkButton(e) {
+    if(e.target.nodeName !== 'BUTTON') { return }
+    comparisonRegion(e)
   }
-  
-  list.innerHTML = str
-  pagination.classList.add('hide')
-};
 
-function initList () {
-  pageOne()
-  title.textContent = '全部行政區'
-}
+  function updateList (items) {
+    let str = ''
+    let len = items.length
+    
+    for(let i = 0; i < len; i++) {
+      str += `<div class="col-6 mt-36">
+        <div class="card h-100">
+          <div class="card-body bg-cover" style="background-image: url('${items[i].Picture1}'); height: 155px;">
+            <div class="card-title">${items[i].Name}</div>
+          </div>
+          <div class="card-footer bg-white">
+            <p class="card-text text-left"><i class="fas fa-clock"></i>${items[i].Opentime}</p>
+            <p class="card-text text-left"><i class="fas fa-map-marker-alt"></i>${items[i].Add}</p>
+            <p class="card-text text-left"><i class="fas fa-mobile-alt"></i>${items[i].Tel}</p>
+          </div>
+        </div>
+      </div>`
+    }
+    
+    list.innerHTML = str
+    pagination.classList.add('hide')
+  };
 
-function pageOne () {
-  console.log(data.length)
-  let str = ''
-  
-  for(let i = 0; i < 10; i++) {
-    str += `<div class="col-6 mt-36">
-      <div class="card h-100">
-        <div class="card-body bg-cover" style="background-image: url('${data[i].Picture1}'); height: 155px;">
-          <div class="card-title">${data[i].Name}</div>
-        </div>
-        <div class="card-footer bg-white">
-          <p class="card-text text-left"><i class="fas fa-clock"></i>${data[i].Opentime}</p>
-          <p class="card-text text-left"><i class="fas fa-map-marker-alt"></i>${data[i].Add}</p>
-          <p class="card-text text-left"><i class="fas fa-mobile-alt"></i>${data[i].Tel}</p>
-        </div>
-      </div>
-    </div>`
+  function initList () {
+    pageOne()
+    title.textContent = '全部行政區'
   }
-  
-  list.innerHTML = str
-};
 
-function pageTwo () {
-  let str = ''
-  
-  for(let i = 10; i < 20; i++) {
-    str += `<div class="col-6 mt-36">
-      <div class="card h-100">
-        <div class="card-body bg-cover" style="background-image: url('${data[i].Picture1}'); height: 155px;">
-          <div class="card-title">${data[i].Name}</div>
+  function pageOne () {
+    let str = ''
+    
+    for(let i = 0; i < 10; i++) {
+      str += `<div class="col-6 mt-36">
+        <div class="card h-100">
+          <div class="card-body bg-cover" style="background-image: url('${data[i].Picture1}'); height: 155px;">
+            <div class="card-title">${data[i].Name}</div>
+          </div>
+          <div class="card-footer bg-white">
+            <p class="card-text text-left"><i class="fas fa-clock"></i>${data[i].Opentime}</p>
+            <p class="card-text text-left"><i class="fas fa-map-marker-alt"></i>${data[i].Add}</p>
+            <p class="card-text text-left"><i class="fas fa-mobile-alt"></i>${data[i].Tel}</p>
+          </div>
         </div>
-        <div class="card-footer bg-white">
-          <p class="card-text text-left"><i class="fas fa-clock"></i>${data[i].Opentime}</p>
-          <p class="card-text text-left"><i class="fas fa-map-marker-alt"></i>${data[i].Add}</p>
-          <p class="card-text text-left"><i class="fas fa-mobile-alt"></i>${data[i].Tel}</p>
-        </div>
-      </div>
-    </div>`
-  }
-  
-  list.innerHTML = str
-};
+      </div>`
+    }
+    
+    list.innerHTML = str
+  };
 
-function pageThree () {
-  let str = ''
-  
-  for(let i = 20; i < 22; i++) {
-    str += `<div class="col-6 mt-36">
-      <div class="card h-100">
-        <div class="card-body bg-cover" style="background-image: url('${data[i].Picture1}'); height: 155px;">
-          <div class="card-title">${data[i].Name}</div>
+  function pageTwo () {
+    let str = ''
+    
+    for(let i = 10; i < 20; i++) {
+      str += `<div class="col-6 mt-36">
+        <div class="card h-100">
+          <div class="card-body bg-cover" style="background-image: url('${data[i].Picture1}'); height: 155px;">
+            <div class="card-title">${data[i].Name}</div>
+          </div>
+          <div class="card-footer bg-white">
+            <p class="card-text text-left"><i class="fas fa-clock"></i>${data[i].Opentime}</p>
+            <p class="card-text text-left"><i class="fas fa-map-marker-alt"></i>${data[i].Add}</p>
+            <p class="card-text text-left"><i class="fas fa-mobile-alt"></i>${data[i].Tel}</p>
+          </div>
         </div>
-        <div class="card-footer bg-white">
-          <p class="card-text text-left"><i class="fas fa-clock"></i>${data[i].Opentime}</p>
-          <p class="card-text text-left"><i class="fas fa-map-marker-alt"></i>${data[i].Add}</p>
-          <p class="card-text text-left"><i class="fas fa-mobile-alt"></i>${data[i].Tel}</p>
+      </div>`
+    }
+    
+    list.innerHTML = str
+  };
+
+  function pageThree () {
+    let str = ''
+    
+    for(let i = 20; i < 22; i++) {
+      str += `<div class="col-6 mt-36">
+        <div class="card h-100">
+          <div class="card-body bg-cover" style="background-image: url('${data[i].Picture1}'); height: 155px;">
+            <div class="card-title">${data[i].Name}</div>
+          </div>
+          <div class="card-footer bg-white">
+            <p class="card-text text-left"><i class="fas fa-clock"></i>${data[i].Opentime}</p>
+            <p class="card-text text-left"><i class="fas fa-map-marker-alt"></i>${data[i].Add}</p>
+            <p class="card-text text-left"><i class="fas fa-mobile-alt"></i>${data[i].Tel}</p>
+          </div>
         </div>
-      </div>
-    </div>`
+      </div>`
+    }
+    
+    list.innerHTML = str
   }
-  
-  list.innerHTML = str
-}
+})
