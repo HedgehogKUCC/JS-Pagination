@@ -10,6 +10,9 @@ async function fetchAsync () {
 }
 
 fetchAsync().then( records => {
+  let loader = document.querySelector('.loader')
+  loader.classList.add('hide')
+
   const data = records
 
   let regions = document.querySelector('#regions')
