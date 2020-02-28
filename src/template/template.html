@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/fontawesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+    />
+  </head>
+  <body ontouchstart>
+    <header>
+      <h1 class="text-white">高雄旅遊資訊</h1>
+      <select name="regions" id="regions">
+        <option value="" selected disabled>--- 請選擇行政區 ---</option>
+        <option value="苓雅區">苓雅區</option>
+        <option value="三民區">三民區</option>
+        <option value="新興區">新興區</option>
+        <option value="鹽埕區">鹽埕區</option>
+      </select>
+      <main>
+        <p>熱門行政區</p>
+        <button type="button" value="苓雅區" class="btn btn-first">
+          苓雅區
+        </button>
+        <button type="button" value="三民區" class="btn btn-second">
+          三民區
+        </button>
+        <button type="button" value="新興區" class="btn btn-third">
+          新興區
+        </button>
+        <button type="button" value="鹽埕區" class="btn btn-fourth">
+          鹽埕區
+        </button>
+      </main>
+      <div class="hr"></div>
+      <div class="circle"></div>
+    </header>
+
+    <div class="wrap">
+      <section class="container mt-10 text-center">
+        <h2 id="title"></h2>
+        <div class="row list">
+          <!--     <div class="col-6 mt-36">
+              <div class="card">
+                <div class="card-body bg-cover" style="background-image: url('http://khh.travel/FileArtPic.ashx?id=705&w=1280&h=960'); height: 155px;">
+                  <div class="card-title">高雄願景館</div>
+                </div>
+                <div class="card-footer bg-white">
+                  <p class="card-text text-left"><i class="fas fa-clock"></i>123</p>
+                  <p class="card-text text-left"><i class="fas fa-map-marker-alt"></i>123</p>
+                  <p class="card-text text-left"><i class="fas fa-mobile-alt"></i>123</p>
+                </div>
+              </div>
+            </div> -->
+        </div>
+      </section>
+    </div>
+
+    <nav class="mt-5 d-flex justify-content-center align-items-center">
+      <ul class="pagination">
+        <li class="page-item active">
+          <a class="page-link page1" href="javaScript:;">1</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link page2" href="javaScript:;">2</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link page3" href="javaScript:;">3</a>
+        </li>
+      </ul>
+    </nav>
+
+    <footer class="text-center mt-5">
+      <p>高雄旅遊網</p>
+      <p>資料來源：高雄市政府</p>
+    </footer>
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
