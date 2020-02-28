@@ -622,18 +622,14 @@ const data = [
 let regions = document.querySelector('#regions')
 let list = document.querySelector('.list')
 let title = document.querySelector('#title')
-let btn = document.querySelectorAll('.btn')
 let pagination = document.querySelector('.pagination')
 let pageItems = pagination.getElementsByClassName('page-item')
 let page1 = document.querySelector('.page1')
 let page2 = document.querySelector('.page2')
 let page3 = document.querySelector('.page3')
+let main = document.querySelector('.main')
 
 initList()
-
-for(let i = 0; i < btn.length; i++) {
-  btn[i].addEventListener('click', comparisonRegion)
-}
 
 // 參考 w3schools.com
 // https://www.w3schools.com/howto/howto_js_active_element.asp
@@ -646,6 +642,7 @@ for (let i = 0; i < pageItems.length; i++) {
 }
 
 regions.addEventListener('change', comparisonRegion)
+main.addEventListener('click', checkButton)
 page1.addEventListener('click', pageOne)
 page2.addEventListener('click', pageTwo)
 page3.addEventListener('click', pageThree)
@@ -669,6 +666,11 @@ function comparisonRegion (e) {
   
   updateList(array)
   title.textContent = select
+}
+
+function checkButton(e) {
+  if(e.target.nodeName !== 'BUTTON') { return }
+  comparisonRegion(e)
 }
 
 function updateList (items) {
