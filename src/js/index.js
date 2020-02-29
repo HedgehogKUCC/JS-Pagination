@@ -14,8 +14,21 @@ fetchAsync().then( records => {
   loader.classList.add('hide')
 
   const data = records
+  let allZone = []
+
+  data.forEach( e => allZone.push(e.Zone) )
+
+  let filterZone = allZone.filter((e, i, a) => a.indexOf(e) === i)
 
   let regions = document.querySelector('#regions')
+
+  filterZone.forEach( zone => {
+    let option = document.createElement("option")
+    option.value = zone
+    option.text = zone
+    regions.appendChild(option)
+  })
+
   let list = document.querySelector('.list')
   let title = document.querySelector('#title')
   let pagination = document.querySelector('.pagination')
@@ -47,6 +60,12 @@ fetchAsync().then( records => {
     let select = e.target.value
     let len = data.length
     let array = []
+
+    if(select === '所有行政區') { 
+      updateList(data) 
+      title.textContent = select
+      return
+    }
     
     for(let i = 0; i < len; i++) {
       if(select === data[i].Zone) {
