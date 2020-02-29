@@ -32,37 +32,32 @@ fetchAsync().then( records => {
   let list = document.querySelector('.list')
   let title = document.querySelector('#title')
   let pagination = document.querySelector('.pagination')
-  let pageItems = pagination.getElementsByClassName('page-item')
-  let page1 = document.querySelector('.page1')
-  let page2 = document.querySelector('.page2')
-  let page3 = document.querySelector('.page3')
   let main = document.querySelector('.main')
 
   initList()
 
-  // 參考 w3schools.com
-  // https://www.w3schools.com/howto/howto_js_active_element.asp
-  for (let i = 0; i < pageItems.length; i++) {
-    pageItems[i].addEventListener("click", function() {
-      let current = document.getElementsByClassName("active")
-      current[0].className = current[0].className.replace(" active", "")
-      this.className += " active"
-    })
-  }
-
   regions.addEventListener('change', comparisonRegion)
   main.addEventListener('click', checkButton)
-  page1.addEventListener('click', pageOne)
-  page2.addEventListener('click', pageTwo)
-  page3.addEventListener('click', pageThree)
+  pagination.addEventListener('click', switchPage)
 
   function comparisonRegion (e) {
     let select = e.target.value
     let len = data.length
     let array = []
+    pagination.addEventListener('click', switchPage)
 
     if(select === '所有行政區') { 
-      updateList(data) 
+      pagination.addEventListener('click', switchPage)
+
+      perPage(data, 1) 
+
+      function switchPage(e) {
+        e.preventDefault()
+        if(e.target.nodeName !== 'A') { return }
+        const page = e.target.dataset.page
+        perPage(data, page)
+      }
+
       title.textContent = select
       return
     }
@@ -79,13 +74,70 @@ fetchAsync().then( records => {
       }
     }
     
-    updateList(array)
+    perPage(array, 1)
+
+    function switchPage(e) {
+      e.preventDefault()
+      if(e.target.nodeName !== 'A') { return }
+      const page = e.target.dataset.page
+      perPage(array, page)
+    }
+
     title.textContent = select
   }
 
   function checkButton(e) {
     if(e.target.nodeName !== 'BUTTON') { return }
     comparisonRegion(e)
+  }
+
+  function perPage(jsonData, nowPage) {
+    // 取得全部資料長度
+    const dataTotal = jsonData.length
+
+    // 設定要顯示在畫面上的資料數量
+    // 預設每一頁只顯示幾筆資料
+    const perPage = 10
+
+    // page 按鈕總數量公式，總資料數量 / 每一頁要顯示的資料
+    // 因為有可能出現餘數，所以要無條件進位
+    // 參考：http://www.eion.com.tw/Blogger/?Pid=1173
+    const pageTotal = Math.ceil( dataTotal / perPage )
+
+    // 對應現在當前頁數
+    let currentPage = nowPage
+
+    if(currentPage > pageTotal) { 
+      currentPage = pageTotal
+    }
+
+    // 點選第二頁時要撈第 11 筆至第 20 筆
+    // 由上述回推出公式
+    const minData = (currentPage * perPage) - perPage + 1
+    const maxData = currentPage * perPage
+
+    const perPageData = []
+
+    jsonData.forEach( (e, i) => {
+
+      // 獲取陣列索引，但因為索引是從 0 開始，所以這裡才要 + 1
+      const num = i + 1
+
+      // 當 num 比 minData 大於等於且比 maxData 小於等於的資料就 push 進去新陣列
+      if( num >= minData && num <= maxData) {
+        perPageData.push(e)
+      }
+    })
+
+    const page = {
+      pageTotal,
+      currentPage,
+      hasPage: currentPage > 1,
+      hasNext: currentPage < pageTotal
+    }
+
+    updateList(perPageData)
+    pageBtn(page)
   }
 
   function updateList (items) {
@@ -108,74 +160,56 @@ fetchAsync().then( records => {
     }
     
     list.innerHTML = str
-    pagination.classList.add('hide')
-  };
-
-  function initList () {
-    pageOne()
-    title.textContent = '全部行政區'
   }
 
-  function pageOne () {
+  function pageBtn(page) {
     let str = ''
-    
-    for(let i = 0; i < 10; i++) {
-      str += `<div class="col-6 mt-36">
-        <div class="card h-100">
-          <div class="card-body bg-cover" style="background-image: url('${data[i].Picture1}'); height: 155px;">
-            <div class="card-title">${data[i].Name}</div>
-          </div>
-          <div class="card-footer bg-white">
-            <p class="card-text text-left"><i class="fas fa-clock"></i>${data[i].Opentime}</p>
-            <p class="card-text text-left"><i class="fas fa-map-marker-alt"></i>${data[i].Add}</p>
-            <p class="card-text text-left"><i class="fas fa-mobile-alt"></i>${data[i].Tel}</p>
-          </div>
-        </div>
-      </div>`
-    }
-    
-    list.innerHTML = str
-  };
+    const total = page.pageTotal
 
-  function pageTwo () {
-    let str = ''
-    
-    for(let i = 10; i < 20; i++) {
-      str += `<div class="col-6 mt-36">
-        <div class="card h-100">
-          <div class="card-body bg-cover" style="background-image: url('${data[i].Picture1}'); height: 155px;">
-            <div class="card-title">${data[i].Name}</div>
-          </div>
-          <div class="card-footer bg-white">
-            <p class="card-text text-left"><i class="fas fa-clock"></i>${data[i].Opentime}</p>
-            <p class="card-text text-left"><i class="fas fa-map-marker-alt"></i>${data[i].Add}</p>
-            <p class="card-text text-left"><i class="fas fa-mobile-alt"></i>${data[i].Tel}</p>
-          </div>
-        </div>
-      </div>`
+    if(page.hasPage) {
+      str += `
+        <li class="page-item"><a class="page-link" href="#" data-page="${Number(page.currentPage) - 1}">上一頁</a></li>
+      `
+    } else {
+      str += `
+        <li class="page-item disabled"><span class="page-link">上一頁</span></li>
+      `
     }
-    
-    list.innerHTML = str
-  };
 
-  function pageThree () {
-    let str = ''
-    
-    for(let i = 20; i < 22; i++) {
-      str += `<div class="col-6 mt-36">
-        <div class="card h-100">
-          <div class="card-body bg-cover" style="background-image: url('${data[i].Picture1}'); height: 155px;">
-            <div class="card-title">${data[i].Name}</div>
-          </div>
-          <div class="card-footer bg-white">
-            <p class="card-text text-left"><i class="fas fa-clock"></i>${data[i].Opentime}</p>
-            <p class="card-text text-left"><i class="fas fa-map-marker-alt"></i>${data[i].Add}</p>
-            <p class="card-text text-left"><i class="fas fa-mobile-alt"></i>${data[i].Tel}</p>
-          </div>
-        </div>
-      </div>`
+    for(let i = 1; i <= total; i++) {
+      if(Number(page.currentPage) === i) {
+        str += `
+          <li class="page-item active"><a class="page-link" href="#" data-page="${i}">${i}</a></li>
+        `
+      } else {
+        str += `
+          <li class="page-item"><a class="page-link" href="#" data-page="${i}">${i}</a></li>
+        `
+      }
     }
-    
-    list.innerHTML = str
+
+    if(page.hasNext) {
+      str += `
+        <li class="page-item"><a class="page-link" href="#" data-page="${Number(page.currentPage) + 1}">下一頁</a></li>
+      `
+    } else {
+      str += `
+        <li class="page-item disabled"><span class="page-link">下一頁</span></li>
+      `
+    }
+
+    pagination.innerHTML = str
+  }
+
+  function switchPage(e) {
+    e.preventDefault()
+    if(e.target.nodeName !== 'A') { return }
+    const page = e.target.dataset.page
+    perPage(data, page)
+  }
+
+  function initList () {
+    perPage(data, 1)
+    title.textContent = '全部行政區'
   }
 })
